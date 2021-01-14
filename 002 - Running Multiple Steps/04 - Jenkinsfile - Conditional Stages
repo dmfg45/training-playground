@@ -12,7 +12,7 @@ pipeline {
             when{
                 environment name: 'TOEXECUTE', value: build
             }
-            step{
+            steps{
                 sh "echo" 'Executing build stage'
             }
 
@@ -21,7 +21,7 @@ pipeline {
             when{
                 environment name: 'TOEXECUTE', value: test
             }
-            step{
+            steps{
                 sh "echo" 'Executing test stage'
             }
         }
