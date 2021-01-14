@@ -4,6 +4,26 @@ pipeline {
 			image 'alpine:latest' 
 		}
 	}
+	parameters{
+	    choice(name:'TOEXECUTE' choices: ['build', 'test'], description: 'Pick something')
+	}
     stages {
+        stage{
+            when{
+                environment name: 'TOEXECUTE', value: build
+            }
+            step{
+                sh "echo" 'Executing build stage'
+            }
+
+        }
+        stage{
+            when{
+                environment name: 'TOEXECUTE', value: test
+            }
+            step{
+                sh "echo" 'Executing test stage'
+            }
+        }
     }
 }
