@@ -1,9 +1,23 @@
 pipeline {
-    agent { 
-		docker { 
-			image 'alpine:latest' 
-		}
-	}
-    stages {
+    agent {
+        docker {
+            image 'alpine:latest'
+        }
     }
+    stages {
+        stage('build') {
+            steps {
+                saveAndPrintDate("test")
+            }
+        }
+        stage('test') {
+            steps {
+                sh "cat test | grep 2021"
+            }
+        }
+    }
+}
+
+def saveAndPrintDate(filename = '') {
+    sh "date > $filename && cat $filename"
 }
