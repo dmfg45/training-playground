@@ -3,14 +3,14 @@ pipeline {
         dockerfile{
             dir '003 - Defining Execution Environments'
             filename '03 - Dockerfile - Install Software Dockerfile'
-           #additionalBuildArgs '--build-arg "ENV_VARIABLE=Value for build"'
-           #args '-e "ENV_VARIABLE=value for execution"'
+           ## additionalBuildArgs '--build-arg "ENV_VARIABLE=Value for build"'
+           ## args '-e "ENV_VARIABLE=value for execution"'
         }
 	}
     stages {
         stage('build') {
             steps {
-                #sh 'if [ "$ENV_VARIABLE" != "Value for execution" ]; then exit 1; fi'
+                ## sh 'if [ "$ENV_VARIABLE" != "Value for execution" ]; then exit 1; fi'
                 sh "curl www.google.pt"
             }
         }
