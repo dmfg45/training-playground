@@ -3,7 +3,10 @@ pipeline {
 		docker { 
 			image 'alpine:latest' 
 		}
-	}
+    }
+    environment{
+        NOTIFICATION_EMAIL = "Hello World"
+    }
     stages {
         stage('build') {
             steps {
